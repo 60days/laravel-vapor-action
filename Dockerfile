@@ -1,4 +1,4 @@
-FROM composer:1.9.3
+FROM composer:2
 
 LABEL repository="https://github.com/ubient/laravel-vapor-action"
 LABEL homepage="https://github.com/ubient/laravel-vapor-action"
@@ -11,7 +11,6 @@ RUN apk add oniguruma-dev libxml2-dev && \
 
 # Install Vapor + Prestissimo (parallel/quicker composer install)
 RUN set -xe && \
-    composer global require hirak/prestissimo && \
     composer global require laravel/vapor-cli && \
     composer clear-cache
 
