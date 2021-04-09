@@ -14,8 +14,8 @@ RUN set -xe && \
     composer global require laravel/vapor-cli && \
     composer clear-cache
 
-# Install Node.js (needed for Vapor's NPM Build)
-RUN apk add --update nodejs npm
+# Install Node.js (needed for Vapor's NPM Build) and python2 (needed to generate pyc files for converter)
+RUN apk add --update --no-cache nodejs npm python2
 
 # Prepare out Entrypoint (used to run Vapor commands)
 COPY vapor-entrypoint /usr/local/bin/vapor-entrypoint
